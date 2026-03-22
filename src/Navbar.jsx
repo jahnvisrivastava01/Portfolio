@@ -68,17 +68,17 @@ export default function Navbar() {
             {menuOpen && (
                 <div className='md:hidden flex flex-col items-center gap-6 pb-6 bg-[#0f0f0f]/95 backdrop-blur-md'>
                     <a href="#home" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-  Home
-</a>
+                        Home
+                    </a>
                     <a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-  About
-</a>
+                        About
+                    </a>
                     <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-  Projects
-</a>
+                         Projects
+                    </a>
                     <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-  Contact
-</a>
+                        Contact
+                    </a>
                 </div>
         )}
 

@@ -13,6 +13,7 @@ const projects = [
   tech: "React • Tailwind • ML • GNN",
   image:gnnImg
   
+  
 },
 ];
 
