@@ -2,16 +2,15 @@ import gnnImg from "./assets/gnn.png";
 
 const projects = [
   {
-    title: "InternQuest",
-    desc: "A smart internship and job tracker with ML-based insights to manage and analyze applications efficiently.",
-    tech: "React • Tailwind • Machine Learning",
-    github: "#",
+    title: "ResumeAnalyzer",
+    desc: "An ML-based resume analyzer that extracts key skills and provides insights to improve job readiness.",
+    tech: "React • Tailwind • Python • Machine Learning • NLP",
+   
   },
 {
   title: "Fashion Recommendation System (GNN)",
   desc: "An advanced fashion recommendation platform using Graph Neural Networks to suggest personalized outfits based on relationships between fashion items.",
   tech: "React • Tailwind • ML • GNN",
-  github: "#",
   image:gnnImg
   
 },

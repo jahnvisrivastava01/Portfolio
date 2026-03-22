@@ -8,3 +8,7 @@
 .animate-bounce-slow {
   animation: bounce-slow 4s infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

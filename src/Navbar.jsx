@@ -38,7 +38,13 @@ export default function Navbar() {
                     <a href="#experience" className="hover:text-purple-400 transition">
                         Experience
                     </a>
-                    <a href="#contact" className="hover:text-purple-400 transition">
+                   
+
+                    <a href="#projects" className="hover:text-purple-400 transition">
+                       Project
+                    </a>
+
+                     <a href="#contact" className="hover:text-purple-400 transition">
                         Contact
                     </a>
 
@@ -61,11 +67,19 @@ export default function Navbar() {
             </div>
             {menuOpen && (
                 <div className='md:hidden flex flex-col items-center gap-6 pb-6 bg-[#0f0f0f]/95 backdrop-blur-md'>
-                    <p className='hover:text-purple-400 cursor-pointer'>Home</p>
-                    <p className='hover:text-purple-400 cursor-pointer'>About</p>
-                    <p className='hover:text-purple-400 cursor-pointer'>Projects</p>
-                <p className='hover:text-purple-400 cursor-pointer'>Contact</p>
-            </div>
+                    <a href="#home" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+  Home
+</a>
+                    <a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+  About
+</a>
+                    <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+  Projects
+</a>
+                    <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+  Contact
+</a>
+                </div>
         )}
 
         </nav>
