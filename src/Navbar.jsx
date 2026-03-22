@@ -48,6 +48,8 @@ export default function Navbar() {
                         Contact
                     </a>
 
+  
+
                    <a
                    href="/Final_Resume.pdf"
                    target="_blank"
@@ -80,10 +82,20 @@ export default function Navbar() {
                     <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
                         Projects
                     </a>
-                    
+
                     <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
                         Contact
                     </a>
+
+                        <a
+      href="/Final_Resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => setMenuOpen(false)}
+      className="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-full transition"
+    >
+      Resume
+    </a>
                 </div>
         )}
 
