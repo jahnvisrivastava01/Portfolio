@@ -1,11 +1,13 @@
 import gnnImg from "./assets/gnn.png";
+import resumeImg from "./assets/resume.png";
 
 const projects = [
   {
-    title: "ResumeAnalyzer",
+    title: "ResumeAI",
     desc: "An ML-based resume analyzer that extracts key skills and provides insights to improve job readiness.",
     tech: "React • Tailwind • Python • Machine Learning • NLP",
-    github:"https://github.com/jahnvisrivastava01/resume-analyzer"
+    github:"https://github.com/jahnvisrivastava01/resume-analyzer",
+    image:resumeImg
    
   },
 {
