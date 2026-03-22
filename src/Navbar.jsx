@@ -70,12 +70,17 @@ export default function Navbar() {
                     <a href="#home" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
                         Home
                     </a>
-                    <a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-                        About
+                    <a href="#skills" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+                        Skills
                     </a>
+                    <a href="#experience" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
+                         Experience
+                    </a>
+
                     <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
-                         Projects
+                        Projects
                     </a>
+                    
                     <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">
                         Contact
                     </a>
