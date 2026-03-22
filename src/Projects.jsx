@@ -5,13 +5,15 @@ const projects = [
     title: "ResumeAnalyzer",
     desc: "An ML-based resume analyzer that extracts key skills and provides insights to improve job readiness.",
     tech: "React • Tailwind • Python • Machine Learning • NLP",
+    github:"https://github.com/jahnvisrivastava01/resume-analyzer"
    
   },
 {
   title: "Fashion Recommendation System (GNN)",
   desc: "An advanced fashion recommendation platform using Graph Neural Networks to suggest personalized outfits based on relationships between fashion items.",
   tech: "React • Tailwind • ML • GNN",
-  image:gnnImg
+  image:gnnImg,
+  github:"https://github.com/jahnvisrivastava01/fashion-recommender"
   
   
 },
@@ -37,7 +39,7 @@ export default function Projects() {
           >
 
             {/* IMAGE PLACEHOLDER */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-1/2 relative z-0">
               {proj.image ? (
   <img
     src={proj.image}
@@ -52,7 +54,7 @@ export default function Projects() {
             </div>
 
             {/* TEXT CONTENT */}
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 relative z-10">
 
               <h3 className="text-2xl font-semibold">
                 {proj.title}
@@ -67,13 +69,17 @@ export default function Projects() {
               </p>
 
               <div className="mt-5">
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  className="text-sm underline hover:text-purple-400"
-                >
-                  View on GitHub →
-                </a>
+               <a
+               href={proj.github}
+               target="_blank"
+               rel="noopener noreferrer"
+               onClick={(e) => {
+                e.stopPropagation();
+                window.open(proj.github, "_blank");
+               }}
+               className="text-sm underline hover:text-purple-400 cursor-pointer">
+                View on GitHub →
+              </a>
               </div>
 
             </div>
