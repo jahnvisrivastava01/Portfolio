@@ -4,7 +4,6 @@ A modern and responsive personal portfolio built using React and Tailwind CSS.
 
 ## 🚀 Features
 - Responsive design (mobile + desktop)
-- Smooth animations
 - Projects with GitHub links
 - Contact form integration
 
