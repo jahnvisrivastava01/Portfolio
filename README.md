@@ -12,7 +12,7 @@ A modern and responsive personal portfolio built using React and Tailwind CSS.
 React • Tailwind CSS • Vite • JavaScript
 
 ## 🔗 Live
-https://your-portfolio-link.netlify.app
+https://jahnviiiportfolio.netlify.app
 
 ## 📂 Projects
 - Resume Analyzer (ML + NLP)
