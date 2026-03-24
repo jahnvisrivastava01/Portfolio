@@ -1,6 +1,5 @@
 # 🌐 Portfolio Website
-
-A modern and responsive personal portfolio built using React and Tailwind CSS.
+A modern, responsive portfolio built using React and Tailwind CSS to showcase my projects, skills, and experience.
 
 ## 🚀 Features
 - Responsive design (mobile + desktop)
