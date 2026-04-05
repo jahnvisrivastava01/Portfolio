@@ -15,3 +15,6 @@ https://jahnviiiportfolio.netlify.app
 ## 📂 Projects
 - Resume Analyzer (ML + NLP)
 - Fashion Recommender (GNN)
+
+## Author 
+Jahnvi Srivastava
