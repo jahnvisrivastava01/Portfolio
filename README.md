@@ -94,7 +94,10 @@ npm run build
 Feel free to connect through the contact form available on the portfolio website.
 
 ---
+## Author
+Jahnvi Srivastava
 
+---
 ## ⭐ Show Your Support
 
 If you like this project, consider giving it a ⭐ on GitHub.
