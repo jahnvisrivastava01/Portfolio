@@ -1,97 +1,111 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const [status, setStatus] = useState(null); // null | "success" | "error"
+  const form = useRef();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
+  const [status, setStatus] = useState("");
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus("error");
-      return;
-    }
+    setStatus("");
 
-    // No backend wired up yet — mailto is a simple stand-in until one exists.
-    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.message}`
-    );
-    window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
-
+   emailjs
+  .sendForm(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    form.current,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
+  .then(() => {
     setStatus("success");
-    setForm({ name: "", email: "", phone: "", message: "" });
-  };
+    form.current.reset();
+  })
+  .catch((error) => {
+    console.error(error);
+    setStatus("error");
+  });
+};
 
-  return (
-    <section id="contact" className="scroll-mt-24 px-6 py-24 text-white">
+return (
+  <section
+    id="contact"
+    className="scroll-mt-24 px-6 py-24 text-white"
+  >
+    <div className="max-w-5xl mx-auto">
 
-      <h2 className="text-3xl font-bold text-center mb-12">
+      <h2 className="text-4xl font-bold text-center">
         Let's <span className="text-purple-400">Connect</span>
       </h2>
 
-      <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-lg border border-gray-700 rounded-xl p-8">
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+      <p className="text-gray-400 text-center mt-4 mb-12">
+        Interested in collaborating, discussing an opportunity. Feel free to send me a message.
+      </p>
+
+      <div className="bg-white/5 backdrop-blur-lg border border-gray-700 rounded-2xl p-8">
+
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="space-y-5"
+        >
+
           <input
             type="text"
-            name="name"
+            name="user_name"
             placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            className="p-3 rounded-lg bg-black/40 border border-gray-600 outline-none focus:border-purple-400"
+            required
+            className="w-full p-4 rounded-lg bg-black/30 border border-gray-600 outline-none focus:border-purple-500"
           />
 
           <input
             type="email"
-            name="email"
+            name="user_email"
             placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            className="p-3 rounded-lg bg-black/40 border border-gray-600 outline-none focus:border-purple-400"
+            required
+            className="w-full p-4 rounded-lg bg-black/30 border border-gray-600 outline-none focus:border-purple-500"
           />
 
           <input
             type="tel"
             name="phone"
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={handleChange}
-            className="p-3 rounded-lg bg-black/40 border border-gray-600 outline-none focus:border-purple-400"
+            placeholder="Phone Number (Optional)"
+            className="w-full p-4 rounded-lg bg-black/30 border border-gray-600 outline-none focus:border-purple-500"
           />
 
           <textarea
             name="message"
-            placeholder="What kind of work required?"
-            rows="4"
-            value={form.message}
-            onChange={handleChange}
-            className="p-3 rounded-lg bg-black/40 border border-gray-600 outline-none focus:border-purple-400"
+            rows="6"
+            placeholder="Tell me about your project..."
+            required
+            className="w-full p-4 rounded-lg bg-black/30 border border-gray-600 outline-none focus:border-purple-500 resize-none"
           />
 
           <button
             type="submit"
-            className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 transition font-medium"
+            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 py-4 rounded-lg font-semibold hover:scale-[1.02] transition duration-300"
           >
             Send Message
           </button>
 
           {status === "success" && (
-            <p className="text-green-400 text-sm text-center">
-              Thanks! Your email client should have opened — send it to reach me.
+            <p className="text-green-400 text-center">
+              Your message has been sent successfully. I'll get back to you
+              as soon as possible.
             </p>
           )}
+
           {status === "error" && (
-            <p className="text-red-400 text-sm text-center">
-              Please fill in your name, email, and message.
+            <p className="text-red-400 text-center">
+              Failed to send the message. Please try again later.
             </p>
           )}
+
         </form>
+
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }
