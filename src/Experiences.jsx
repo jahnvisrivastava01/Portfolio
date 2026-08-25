@@ -5,10 +5,9 @@ const experiences = [
     company: "State Bank of India (SBI)",
     role: "Full Stack Developer Intern",
     duration: "June 2026 - August 2026",
-    current: true,
-    description:
-      "Contributing to the development of enterprise web applications using ASP.NET Core MVC, C#, Entity Framework Core, and SQL Server. Implementing backend modules, integrating database operations, and collaborating on real-world business solutions.",
+    
   },
+  
   {
     company: "Ibtidaa Tech",
     role: "Graphic Design & Media Intern",
