@@ -1,14 +1,87 @@
 @import "tailwindcss";
 
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Theme tokens — light is the default, dark is applied via data-theme="dark" */
+:root {
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --line: #e3e7ee;
+  --ink: #101828;
+  --muted: #475467;
+  --faint: #8792a2;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --rose: #e2558b;
+  color-scheme: light;
 }
 
-.animate-bounce-slow {
-  animation: bounce-slow 4s infinite;
+[data-theme="dark"] {
+  --bg: #0b0d12;
+  --surface: #12151d;
+  --line: #232937;
+  --ink: #e8ebf2;
+  --muted: #a3abba;
+  --faint: #6c7586;
+  --accent: #6aa5ff;
+  --accent-soft: rgba(106, 165, 255, 0.12);
+  --rose: #f28cb4;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Google Sans Code", ui-monospace, monospace;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-rose: var(--rose);
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Name highlight: blue → rose */
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent), var(--rose));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle reveal on scroll — respects reduced motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body { transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }

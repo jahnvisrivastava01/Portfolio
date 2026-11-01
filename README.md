@@ -1,103 +1,33 @@
-# 🌐 Portfolio Website
+# Jahnvi Srivastava — Portfolio
 
-A modern, responsive portfolio website built with **React**, **Vite**, and **Tailwind CSS** to showcase projects, skills, achievements, and experience.
+Personal portfolio of **Jahnvi Srivastava**, Full Stack Developer and B.Tech CSE student at Amity University Mumbai.
 
----
+**Stack:** React 19 · Vite · Tailwind CSS v4 · EmailJS
 
-## 🚀 Live Demo
+## Sections
+Hero · Experience · Projects · Skills · Education & Leadership · Resume (preview + download) · Contact
 
-<p align="center">
-  <a href="https://portfolio-website-beta-rouge.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Live%20Portfolio-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" />
-  </a>
-</p>
+## Editing content
+All text lives in [`src/data.js`](src/data.js) — experience, projects, skills, education, certifications.
+To update the resume, replace `public/JahnviSrivastava_Resume.pdf`.
 
----
-
-## ✨ Features
-
-- 🎨 Modern & Minimal UI
-- 📱 Fully Responsive Design
-- 💼 Dynamic Hero Section
-- 🏆 Rotating Achievements Widget
-- 🛠 Categorized Skills Section
-- 📂 Featured Projects
-- 📧 Contact Form using EmailJS
-- 🌙 Dark Theme
-- ⚡ Fast Performance with Vite
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-- React
-- Vite
-- JavaScript
-- Tailwind CSS
-- HTML5
-- CSS3
-
-### Services
-- EmailJS
-
-### Tools
-- Git
-- GitHub
-- Vercel
-
----
-
-## 📂 Project Structure
-
-```text
-Portfolio/
-│
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── package.json
-├── vite.config.js
-└── README.md
-```
-
----
-
-## ⚙️ Installation
-
+## Run locally
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/Portfolio.git
-
-cd Portfolio
-
 npm install
-
 npm run dev
 ```
 
----
+The contact form uses EmailJS. Create a `.env` file:
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
 
-## 🚀 Build
-
+## Build
 ```bash
 npm run build
 ```
 
----
-
-## 📬 Contact
-
-Feel free to connect through the contact form available on the portfolio website.
-
----
 ## Author
-Jahnvi Srivastava
-
----
-## ⭐ Show Your Support
-
-If you like this project, consider giving it a ⭐ on GitHub.
+Jahnvi Srivastava — [GitHub](https://github.com/jahnvisrivastava01) · [LinkedIn](https://www.linkedin.com/in/jahnvisrivastava20)

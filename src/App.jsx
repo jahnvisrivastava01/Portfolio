@@ -1,37 +1,44 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './Navbar'
-import Hero from './Hero' 
-import Skills from './Skills'
-import Experiences from './Experiences'
-import Projects from './Projects'
-import Contact from './Contact'
-import Footer from './Footer'
+import { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import About from "./components/About";
+import Resume from "./components/Resume";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
+export default function App() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
-function App() {
-  const [count, setCount] = useState(0)
-
-return (
-  <div className="relative min-h-screen overflow-hidden bg-[#0f0f0f] text-white">
-
-    
-    <div className="fixed w-72 h-72 bg-purple-600 opacity-20 blur-3xl top-10 left-10"></div>
-    <div className="fixed w-72 h-72 bg-pink-500 opacity-20 blur-3xl bottom-10 right-10"></div>
-
-    
-    <div className="relative z-10">
+  return (
+    <div className="min-h-screen bg-bg text-ink">
       <Navbar />
-      <Hero />
-      <Skills />
-      <Experiences />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <About />
+        <Resume />
+        <Contact />
+      </main>
       <Footer />
     </div>
-
-  </div>
-);
+  );
 }
-
-export default App
